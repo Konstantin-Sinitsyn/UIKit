@@ -12,7 +12,10 @@ const toggleMenu = () => {
 
 <template>
   <div class="container">
-    <div class="sidebar-toggle" @click="toggleMenu">&#5125;</div>
+    <div class="sidebar-toggle" @click="toggleMenu">
+    <span v-if="isOpenMenu">&#171;</span>
+    <span v-else>&#187;</span>
+    </div>
     <LayoutHeader/>
     <LayoutSidebar 
     :openSidebar="isOpenMenu"/>
@@ -34,7 +37,7 @@ const toggleMenu = () => {
 .content {
   max-width: 1400px;
   margin-left: 250px;
-  padding: 30px;
+  padding: 62px 30px 30px 30px;
   transition: 0.2s;
   &_full {
     margin-left: 0;
@@ -47,10 +50,12 @@ const toggleMenu = () => {
   width: 15px;
   background: var(--primary);
   height: 100%;
-  top: 62px;
-  z-index: 1;
+  width: 17px;
+  top: 0;
+  z-index: 2;
   cursor: pointer;
   color: #fff;
+  font-size: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
